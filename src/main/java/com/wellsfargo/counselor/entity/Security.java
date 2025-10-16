@@ -11,7 +11,7 @@ public class Security {
     @Column(name = "security_id")
     private long securityId;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "portfolio_id", nullable = false)
     private Portfolio portfolio;
 
@@ -27,13 +27,13 @@ public class Security {
     @Column(name = "purchase_date", nullable = false)
     private LocalDateTime purchaseDate;
 
-    private int quantity;
+    private float quantity;
 
     protected Security(){
 
     }
 
-    public Security(long securityId, Portfolio portfolio, String name, String category, float purchasePrice, LocalDateTime purchaseDate, int quantity) {
+    public Security(long securityId, Portfolio portfolio, String name, String category, float purchasePrice, LocalDateTime purchaseDate, float quantity) {
         this.securityId = securityId;
         this.portfolio = portfolio;
         this.name = name;
@@ -83,11 +83,11 @@ public class Security {
         this.purchaseDate = purchaseDate;
     }
 
-    public int getQuantity() {
+    public float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(float quantity) {
         this.quantity = quantity;
     }
 }
