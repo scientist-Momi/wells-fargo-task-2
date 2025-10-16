@@ -11,7 +11,7 @@ public class Portfolio {
     @Column(name = "portfolio_id")
     private long portfolioId;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
